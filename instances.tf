@@ -27,7 +27,7 @@ resource "aws_instance" "jumpbox" {
 # Create BIG-IP(SSLO)
 #
 
-data "local_file" "onBoarding" {
+data "local_file" "f5_onboard" {
   filename = "${path.module}/f5_onboard.tmpl"
 }
 
@@ -43,7 +43,7 @@ resource "aws_instance" "sslo" {
   } 
   availability_zone           = var.az
   depends_on                  = [aws_internet_gateway.sslo_igw]
-  user_data                   = data.local_file.onBoarding.content
+  user_data                   = data.local_file.f5_onboard.content
   tags = {
     Name = "sslo-bigip"
   }
