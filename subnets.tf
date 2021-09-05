@@ -7,9 +7,9 @@
 # Create Management Subnet 
 #
 resource "aws_subnet" "management" {
-  vpc_id                = module.vpc.vpc_id
-  cidr_block            = "10.0.1.0/24"
-  availability_zone     = var.az
+  vpc_id                   = module.vpc.vpc_id
+  cidr_block               = "10.0.1.0/24"
+  availability_zone        = var.az
   tags = {
     Name = "sslo-management"
     Group_Name = "sslo-management"
