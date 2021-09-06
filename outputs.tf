@@ -28,6 +28,11 @@ output "sslo_management_public_ip" {
   description = "The public IP address of SSLO management interface."
 }
 
+output "sslo_management_public_dns" {
+  value       = aws_instance.sslo.public_dns
+  description = "The public DNS of SSLO."
+}
+
 output "jumpbox_public_ip" {
   value       = aws_instance.jumpbox.public_ip
   description = "The public IP of the jumpbox."
