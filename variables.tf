@@ -26,6 +26,24 @@ variable "jumpbox_ami" {
 }
 
 #
+# BIG-IP AMI - Change AMI to whatever, the world is your oyster!
+#
+variable "sslo_ami" {
+  description = "BIG-IP version 16.1.x"
+  type        = string
+  default     = "ami-08257c0c5bb79a3f1"
+}
+
+#
+# Inspection AMI - Change AMI to whatever, the world is your oyster!
+#
+variable "inspection_ami" {
+  description = "Inspection Device"
+  type        = string
+  default     = "ami-087c17d1fe0178315"
+}
+
+#
 # Replace this with your SSH Keypair name 
 # You should have created a key pair in advance, if not go create one!
 #

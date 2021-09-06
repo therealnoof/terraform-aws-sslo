@@ -30,7 +30,7 @@ resource "aws_instance" "jumpbox" {
 
 resource "aws_instance" "sslo" {
 
-  ami                         = "ami-08257c0c5bb79a3f1"  
+  ami                         = var.sslo_ami  
   instance_type               = "m5.4xlarge"
   key_name                    = var.ec2_key_name 
   ebs_block_device {
@@ -81,7 +81,7 @@ resource "aws_instance" "sslo" {
 resource "aws_instance" "webapp-server" {
 
   count                       = 1
-  ami                         = "ami-0db50ca6dcf3dec27"  
+  ami                         = var.webapp_ami
   instance_type               = "t3.small"
   key_name                    = var.ec2_key_name  
   availability_zone           = var.az
@@ -101,7 +101,7 @@ resource "aws_instance" "webapp-server" {
 resource "aws_instance" "inspection_device" {
 
   count                       = 1
-  ami                         = "ami-087c17d1fe0178315"  
+  ami                         = var.inspection_ami 
   instance_type               = "t2.small"
   key_name                    = var.ec2_key_name  
   availability_zone           = var.az
