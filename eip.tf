@@ -25,7 +25,7 @@ resource "aws_eip_association" "jumpbox_eip" {
 
 
 #
-# Create EIP Association with Jump Box Management Interface
+# Create EIP Association with SSLO Management Interface
 #
 resource "aws_eip_association" "sslo_management" {
   network_interface_id        = aws_network_interface.sslo_bigip_management.id
