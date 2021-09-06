@@ -44,6 +44,16 @@ variable "inspection_ami" {
 }
 
 #
+# Webapp Test AMI - Change AMI to whatever, the world is your oyster!
+#
+variable "webapp_ami" {
+  description = "Test webb app"
+  type        = string
+  default     = "ami-0db50ca6dcf3dec27"
+}
+
+
+#
 # Replace this with your SSH Keypair name 
 # You should have created a key pair in advance, if not go create one!
 #
