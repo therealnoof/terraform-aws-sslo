@@ -30,7 +30,7 @@ resource "aws_network_interface" "sslo_bigip_management" {
 # Create External Network Interface for BIG_IP(SSLO) 
 #
 resource "aws_network_interface" "sslo_bigip_external" {
-  private_ip            = "${var.sslo_external_ip}"
+  private_ips            = ["10.0.2.180"]
   subnet_id             = aws_subnet.external.id
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_external.id]
@@ -43,7 +43,7 @@ resource "aws_network_interface" "sslo_bigip_external" {
 # Create Internal Network Interface for BIG_IP(SSLO)
 #
 resource "aws_network_interface" "sslo_bigip_internal" {
-  private_ip            = "${var.sslo_internal_ip}"
+  private_ips            = ["10.0.5.9"]
   subnet_id             = aws_subnet.internal.id
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_internal.id]
@@ -56,7 +56,7 @@ resource "aws_network_interface" "sslo_bigip_internal" {
 # Create DMZ1 Network Interface for BIG_IP(SSLO)
 #
 resource "aws_network_interface" "sslo_bigip_dmz1" {
-  private_ip            = "${var.sslo_dmz1_ip}"
+  private_ips            = ["10.0.3.27"]
   subnet_id             = aws_subnet.DMZ1.id
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_inspection_zone.id]
@@ -69,7 +69,7 @@ resource "aws_network_interface" "sslo_bigip_dmz1" {
 # Create DMZ2 Network Interface for BIGIP(SSLO)
 #
 resource "aws_network_interface" "sslo_bigip_dmz2" {
-  private_ip            = "${var.sslo_dmz2_ip}"
+  private_ips            = ["10.0.4.23"]
   subnet_id             = aws_subnet.DMZ2.id
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_inspection_zone.id]

@@ -26,47 +26,11 @@ variable "jumpbox_ami" {
 }
 
 #
-# This outputs to the console asking for the Key Pair for the EC2 instances
+# Replace this with your SSH Keypair name 
 # You should have created a key pair in advance, if not go create one!
 #
 variable "ec2_key_name" {
   description = "AWS EC2 Key name for SSH access"
   type        = string
+  default     = "noofdog"
 }
-
-#
-# SSLO External Private IP
-#
-variable "sslo_external_ip" {
-  description = "SSLO External Private IP"
-  type        = string
-  default     = "10.0.2.180"
-}
-
-#
-# SSLO Internal Private IP
-#
-variable "sslo_internal_ip" {
-  description = "SSLO Internal Private IP"
-  type        = string
-  default     = "10.0.5.9"
-}
-
-#
-# SSLO DMZ1 Private IP
-#
-variable "sslo_dmz1_ip" {
-  description = "SSLO DMZ1 Private IP"
-  type        = string
-  default     = "10.0.3.27"
-}
-
-#
-# SSLO DMZ2 Private IP
-#
-variable "sslo_dmz2_ip" {
-  description = "SSLO DMZ2 Private IP"
-  type        = string
-  default     = "10.0.4.203"
-}
-

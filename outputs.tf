@@ -23,6 +23,11 @@ output "sslo_management" {
   description = "The private IP address of SSLO management interface."
 }
 
+output "sslo_management_public_ip" {
+  value       = aws_instance.sslo.public_ip
+  description = "The public IP address of SSLO management interface."
+}
+
 output "jumpbox_public_ip" {
   value       = aws_instance.jumpbox.public_ip
   description = "The public IP of the jumpbox."

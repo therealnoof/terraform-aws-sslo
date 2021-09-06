@@ -77,7 +77,7 @@ extension_services:
           myLicense:
             class: License
             licenseType: regKey
-            regKey: BSWMY-TZJSE-YVKWR-OZUKY-LKBHJOY
+            regKey: HTQPH-OFODI-TWXVP-OZLJG-EEFJSWD
           My_DbVariables:
             class: DbVariables
             provision.extramb: 1000
@@ -98,10 +98,36 @@ extension_services:
             class: Provision
             ltm: nominal
             sslo: nominal
+          internal:
+            class: VLAN
+            tag: 4093
+            mtu: 1500
+            interfaces:
+            - name: '1.2'
+              tagged: false
+          internal-self:
+            class: SelfIp
+            address: 10.0.5.9/24  
+            vlan: internal
+            allowService: default
+            trafficGroup: traffic-group-local-only
+          external:
+            class: VLAN
+            tag: 4094
+            mtu: 1500
+            interfaces:
+            - name: '1.1'
+              tagged: false
+          external-self:
+            class: SelfIp
+            address: 10.0.2.180/24
+            vlan: external
+            allowService: default
+            trafficGroup: traffic-group-local-only
           My_System:
             class: System
             autoPhonehome: false
-            hostname: '{{{HOST_NAME}}}'
+            hostname: demo.sslo.com
           admin:
             class: User
             userType: regular
