@@ -70,7 +70,7 @@ extension_services:
         schemaVersion: 1.0.0
         class: Device
         label: >-
-          SSLO DEMO
+          SSLO STANDALONE
         async: true
         Common:
           class: Tenant
@@ -84,7 +84,7 @@ extension_services:
             restjavad.useextramb: true
             ui.advisory.enabled: true
             ui.advisory.color: blue
-            ui.advisory.text: SSLO BIGIP DEMO
+            ui.advisory.text: SSLO BIGIP STANDALONE
           My_Dns:
             class: DNS
             nameServers:
@@ -124,10 +124,36 @@ extension_services:
             vlan: external
             allowService: default
             trafficGroup: traffic-group-local-only
+          dmz1:
+            class: VLAN
+            tag: 4095
+            mtu: 1500
+            interfaces:
+            - name: '1.3'
+              tagged: false
+          dmz1-self:
+            class: SelfIP
+            address: 10.0.3.27/24
+            vlan: dmz1
+            allowservice: default
+            trafficGroup: traffic-group-local-only
+          dmz2:
+            class: VLAN
+            tag: 4096
+            mtu: 1500
+            interfaces:
+            - name: '1.4'
+              tagged: false
+          dmz2-self:
+            class: SelfIp
+            address: 10.0.4.23/24
+            vlan: dmz2
+            allowservice: default
+            trafficGroup: traffic-group-local-only
           My_System:
             class: System
             autoPhonehome: false
-            hostname: demo.sslo.com
+            hostname: standalone.sslo.com
           admin:
             class: User
             userType: regular
