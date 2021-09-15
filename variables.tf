@@ -38,9 +38,9 @@ variable "sslo_ami" {
 # Inspection AMI - Change AMI to whatever, the world is your oyster!
 #
 variable "inspection_ami" {
-  description = "Inspection Device"
+  description = "Snort Network Intrusion and Detection System"
   type        = string
-  default     = "ami-087c17d1fe0178315"
+  default     = "ami-07f0ab90078850471"
 }
 
 #
