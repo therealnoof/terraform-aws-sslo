@@ -30,7 +30,7 @@ resource "aws_network_interface" "sslo_bigip_management" {
 # Create External Network Interface for BIG_IP(SSLO) 
 #
 resource "aws_network_interface" "sslo_bigip_external" {
-  private_ips            = ["10.0.2.180"]
+  private_ips            = ["10.0.2.180", "10.0.2.200"]
   subnet_id             = aws_subnet.external.id
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_external.id]

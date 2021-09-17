@@ -15,6 +15,13 @@ resource "aws_eip" "sslo_management" {
   public_ipv4_pool            = "amazon"
 }
 
+resource "aws_eip" "sslo_vip" {
+  vpc                         = true
+  public_ipv4_pool            = "amazon"
+  network_interface           =  aws_network_interface.sslo_bigip_external.id
+  associate_with_private_ip   = "10.0.2.200"
+}
+
 #
 # Create EIP Association with Jump Box Management Interface
 #
@@ -31,3 +38,4 @@ resource "aws_eip_association" "sslo_management" {
   network_interface_id        = aws_network_interface.sslo_bigip_management.id
   allocation_id               = aws_eip.sslo_management.id
 }
+
