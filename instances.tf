@@ -80,7 +80,6 @@ resource "aws_instance" "sslo" {
 #
 resource "aws_instance" "webapp-server" {
 
-  count                       = 1
   ami                         = var.webapp_ami
   instance_type               = "t3.small"
   key_name                    = var.ec2_key_name  
@@ -100,12 +99,17 @@ resource "aws_instance" "webapp-server" {
 # 
 resource "aws_instance" "inspection_device" {
 
-  count                       = 1
   ami                         = var.inspection_ami 
   instance_type               = "t2.small"
   key_name                    = var.ec2_key_name  
   availability_zone           = var.az
   depends_on                  = [aws_internet_gateway.sslo_igw]
+  user_data                   = <<-EOF
+                                #!/bin/bash
+                                sudo ip route add 10.0.2.0/24 via 10.0.4.23 dev eth2
+                                sudo sysctl -w net.ipv4.ip_forward=1
+                                EOF
+                              
   tags = {
     Name = "sslo-inspection-device"
   }

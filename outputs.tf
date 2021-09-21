@@ -43,3 +43,20 @@ output "jumpbox_public_dns" {
   description = "The public DNS of the jumpbox."
 }
 
+output "sslo_vip" {
+  value       = aws_eip.sslo_vip.public_ip
+  description = "The public IP of the VIP"
+}
+
+output "webapp_internal" {
+  value       = aws_instance.webapp-server.private_ip
+  description = "Private IP of the web app server" 
+}
+
+output "inspection_service_ip" {
+  value       = aws_network_interface.sslo_inspection_device_dmz1.private_ip
+  description = "Private IP of the Inspection Service IP"
+}
+
+
+
