@@ -15,6 +15,12 @@ You will need a BYOL SSLO key/license to properly spin this up.  This is hardcod
 
 User=admin Password=f5Twister! , this is configured for demo/dev enviroments only, it is recommend that you use a secrets manager like Secrets or Vault
 
+SSLO has ATC packages installed and DO provisions SSLO and sets networking up via runtime-init in the f5_onboard.tmpl
+
+SSLO day 2 automation coming later(as3 or ansible)
+
+The Inspection device is a Linux host with Snort installed. Snort is not configured but it will bootstrap with appropriate routing and IP forwarding set to that packets
+traverse the inspection zone and re-enter the SSLO interface.
 
 Prereqs:
 
