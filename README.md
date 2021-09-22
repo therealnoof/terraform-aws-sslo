@@ -43,9 +43,13 @@ Steps to deploy:
 2. Replace the hard coded license key in the f5_onboard.tmpl file
 
 3. run these commands:
+
 terraform init
+
 terraform plan
+
 terraform apply
+
 terraform destroy <-- when you are ready to tear it down
 
 4. The BIG-IP SSLO is not configured, this is coming soon but all of the plumbing is in place
@@ -56,7 +60,7 @@ terraform destroy <-- when you are ready to tear it down
 
 7. On the Egress, use automap and network default
 
--- INSERT --                                                                                                                                      59,50         Bot 
+ 
 
 
 
