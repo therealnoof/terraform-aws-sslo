@@ -77,7 +77,7 @@ extension_services:
           myLicense:
             class: License
             licenseType: regKey
-            regKey: ZKKIR-YQYPX-RDADJ-EHVTK-YGYSBDW
+            regKey: FNQKL-MLYYR-SAFDL-ZAELV-SLJOICR
           My_DbVariables:
             class: DbVariables
             provision.extramb: 1000
@@ -98,6 +98,7 @@ extension_services:
             class: Provision
             ltm: nominal
             sslo: nominal
+            avr: nominal
           internal:
             class: VLAN
             tag: 4093
@@ -150,6 +151,11 @@ extension_services:
             vlan: dmz2
             allowService: default
             trafficGroup: traffic-group-local-only
+          tgw-route:
+            class: Route
+            gw: 10.0.5.1
+            network: 192.168.1.0/24
+            mtu: 1500
           My_System:
             class: System
             autoPhonehome: false

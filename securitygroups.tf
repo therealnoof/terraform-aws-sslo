@@ -105,3 +105,29 @@ resource "aws_security_group" "sslo_inspection_zone" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 }
+
+
+#
+# Create Security Group for TGW Webapp
+#
+resource "aws_security_group" "sslo_appstack" {
+  vpc_id                = aws_vpc.appstack.id
+  description           = "sslo_sg_appstack"
+  name                  = "sslo_sg_appstack"
+  tags = {
+    Name = "sslo_sg_appstack"
+  }
+  ingress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+}

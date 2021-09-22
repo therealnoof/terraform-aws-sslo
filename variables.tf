@@ -49,7 +49,7 @@ variable "inspection_ami" {
 variable "webapp_ami" {
   description = "Test webb app"
   type        = string
-  default     = "ami-0db50ca6dcf3dec27"
+  default     = "ami-0c8d6a5fd0c9b9fe7"
 }
 
 

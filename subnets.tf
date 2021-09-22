@@ -68,3 +68,16 @@ resource "aws_subnet" "internal" {
   }
 }
 
+#
+# Create TGW App Subnet
+#
+
+resource "aws_subnet" "tgw-appstack" {
+  vpc_id                = aws_vpc.appstack.id
+  cidr_block            = "192.168.1.0/24"
+  availability_zone     = var.az
+  tags = {
+    Name = "tgw-appstack"
+    Group_Name = "tgw-appstack"
+  }
+}

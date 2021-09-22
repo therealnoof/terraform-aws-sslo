@@ -82,9 +82,9 @@ resource "aws_network_interface" "sslo_bigip_dmz2" {
 # Create the Network Interface for the WebServer
 #
 resource "aws_network_interface" "sslo_test_webapp" {
-  subnet_id             = aws_subnet.internal.id
+  subnet_id             = aws_subnet.tgw-appstack.id
   source_dest_check     = "false"
-  security_groups       = [aws_security_group.sslo_internal.id]
+  security_groups       = [aws_security_group.sslo_appstack.id]
   tags = {
     Name = "sslo_test_webapp"
   }
