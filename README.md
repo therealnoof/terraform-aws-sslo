@@ -64,7 +64,7 @@ terraform destroy <-- when you are ready to tear it down
 
 9. Use DMZ2 Vlan for from
 
- ![f5](https://user-images.githubusercontent.com/18743780/134434696-12252446-e3e2-4372-9f2a-982cc2d0ee82.png)
+ ![f5](https://user-images.githubusercontent.com/18743780/134435723-a9216d8a-0cd7-463a-bda7-665eaaff9008.png)
 
 
 
