@@ -60,6 +60,10 @@ terraform destroy <-- when you are ready to tear it down
 
 7. On the Egress, use automap and network default
 
+8. Use DMZ1 Vlan for to
+
+9. Use DMZ2 Vlan for from
+
  
 
 
