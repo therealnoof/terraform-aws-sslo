@@ -64,6 +64,8 @@ terraform destroy <-- when you are ready to tear it down
 
 9. Use DMZ2 Vlan for from
 
+Inbound Traffic Diagram
+
  ![f5](https://user-images.githubusercontent.com/18743780/134435723-a9216d8a-0cd7-463a-bda7-665eaaff9008.png)
 
 
