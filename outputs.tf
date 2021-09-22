@@ -58,5 +58,8 @@ output "inspection_service_ip" {
   description = "Private IP of the Inspection Service IP"
 }
 
-
+output "sslo_external_private_vip" {
+  value       = aws_network_interface.sslo_bigip_external.private_ips
+  description = "The private IP address of SSLO external VIP interface."
+}
 
