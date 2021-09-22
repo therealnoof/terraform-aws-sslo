@@ -22,6 +22,12 @@ SSLO day 2 automation coming later(as3 or ansible)
 The Inspection device is a Linux host with Snort installed. Snort is not configured but it will bootstrap with appropriate routing and IP forwarding so that packets
 traverse the inspection zone and re-enter the SSLO DMZ2 interface.
 
+There are static IP addresses hard coded for ease of demo at the moment. The outputs at the completion of the Terraform will help with IP understanding.
+
+The VIP address is 10.0.2.200
+
+
+
 Prereqs:
 
 1. Terraform >= v.0.14.5
@@ -29,6 +35,28 @@ Prereqs:
 2. Git installed on your local machine to clone this repo
 
 3. An AWS account with programmatic access and Key Pair created
+
+Steps to deploy:
+
+1. Make sure you meet the prereqs
+
+2. Replace the hard coded license key in the f5_onboard.tmpl file
+
+3. run these commands:
+terraform init
+terraform plan
+terraform apply
+terraform destroy <-- when you are ready to tear it down
+
+4. The BIG-IP SSLO is not configured, this is coming soon but all of the plumbing is in place
+
+5. Configure a L3 Inbound topology
+
+6. Use auto map and on the port remap use the default
+
+7. On the Egress, use automap and network default
+
+-- INSERT --                                                                                                                                      59,50         Bot 
 
 
 
