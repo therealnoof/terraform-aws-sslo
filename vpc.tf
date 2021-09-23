@@ -3,7 +3,7 @@
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name                 = "terraform-aws-sslo-securitystack"
+  name                 = "${var.prefix}-terraform-aws-sslo-securitystack"
   cidr                 = "10.0.0.0/16"
   azs                  = [var.az]
   enable_nat_gateway   = "true"
@@ -15,6 +15,6 @@ resource "aws_vpc" "appstack" {
   cidr_block           = "192.168.1.0/24"
   enable_dns_hostnames = "true"
   tags = {
-    Name = "terraform-aws-sslo-appstack"
+    Name = "${var.prefix}-terraform-aws-sslo-appstack"
   }
 }

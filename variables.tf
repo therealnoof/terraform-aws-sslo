@@ -62,3 +62,12 @@ variable "ec2_key_name" {
   type        = string
   default     = "noofdog"
 }
+
+#
+# Add a prefix to objects in SSLO - this will make identifying your config easier
+#
+variable "prefix" {
+  description = "Type a prefix name to keep your SSLO objects unique"
+  type        = string 
+  default     = "noof"
+}
