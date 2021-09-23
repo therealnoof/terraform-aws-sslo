@@ -28,10 +28,13 @@ The VIP address is 10.0.2.200
 
 If the config fails, you should check where traffic is stopping.  A good place to start is at the F5. Do a tcpdump on the DMZ1 interface...do you see traffic? yes then 
 tcpdump the DMZ2 interface....traffic? no....then its probably the Inspection device and it didnt bootstrap properly.
+
 ssh into the device and check the route table, does it have a route to 10.0.2.0/24 via 10.0.4.23?
+
 Run these commands to fix the routing issue:
 
 sudo ip route add 10.0.2.0/24 via 10.0.4.23 dev eth2
+
 sudo sysctl -w net.ipv4.ip_forward=1
 
 
