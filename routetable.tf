@@ -18,7 +18,7 @@ resource "aws_route_table" "sslo-route-table" {
     transit_gateway_id  = aws_ec2_transit_gateway.sslo-tgw.id
     }
   tags = {
-    Name = "sslo-route-table"
+    Name = "${var.prefix}-sslo-route-table"
   }
 } 
 
@@ -66,7 +66,7 @@ resource "aws_main_route_table_association" "sslo-main-route-table-association" 
 resource "aws_internet_gateway" "sslo_igw" {
   vpc_id                = module.vpc.vpc_id
   tags = {
-    Name = "sslo-igw"
+    Name = "${var.prefix}-sslo-igw"
   }
 }
 
@@ -82,7 +82,7 @@ resource "aws_route_table" "sslo-appstack-route-table" {
     transit_gateway_id  = aws_ec2_transit_gateway.sslo-tgw.id
   }
   tags = {
-    Name = "sslo-appstack-route-table"
+    Name = "${var.prefix}-sslo-appstack-route-table"
   }
 } 
 

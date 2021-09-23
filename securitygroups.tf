@@ -11,7 +11,7 @@ resource "aws_security_group" "sslo_management" {
   description           = "sslo_sg_management"
   name                  = "sslo_sg_management"
   tags = {
-    Name = "sslo_sg_management"
+    Name = "${var.prefix}-sslo_sg_management"
   }
   ingress {
     # SSH (change to whatever ports you need)
@@ -37,7 +37,7 @@ resource "aws_security_group" "sslo_external" {
   description           = "sslo_sg_external"
   name                  = "sslo_sg_external"
   tags = {
-    Name = "sslo_sg_external"
+    Name = "${var.prefix}-sslo_sg_external"
   }
   ingress {
     from_port       = 0
@@ -62,7 +62,7 @@ resource "aws_security_group" "sslo_internal" {
   description           = "sslo_sg_internal"
   name                  = "sslo_sg_internal"
   tags = {
-    Name = "sslo_sg_internal"
+    Name = "${var.prefix}-sslo_sg_internal"
   }
   ingress {
     from_port       = 0
@@ -88,7 +88,7 @@ resource "aws_security_group" "sslo_inspection_zone" {
   description           = "sslo_sg_inspection_zone"
   name                  = "sslo_sg_inspection_zone"
   tags = {
-    Name = "sslo_sg_inspection_zone"
+    Name = "${var.prefix}-sslo_sg_inspection_zone"
   }
   ingress {
     # Allow All (change to whatever ports you need)
@@ -115,7 +115,7 @@ resource "aws_security_group" "sslo_appstack" {
   description           = "sslo_sg_appstack"
   name                  = "sslo_sg_appstack"
   tags = {
-    Name = "sslo_sg_appstack"
+    Name = "${var.prefix}-sslo_sg_appstack"
   }
   ingress {
     from_port       = 0

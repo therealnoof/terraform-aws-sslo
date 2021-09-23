@@ -11,8 +11,8 @@ resource "aws_subnet" "management" {
   cidr_block               = "10.0.1.0/24"
   availability_zone        = var.az
   tags = {
-    Name = "sslo-management"
-    Group_Name = "sslo-management"
+    Name = "${var.prefix}-sslo-management"
+    Group_Name = "${var.prefix}-sslo-management"
   }
 }
 
@@ -24,8 +24,8 @@ resource "aws_subnet" "external" {
   cidr_block            = "10.0.2.0/24"
   availability_zone     = var.az
   tags = {
-    Name = "sslo-external"
-    Group_Name = "sslo-external"
+    Name = "${var.prefix}-sslo-external"
+    Group_Name = "${var.prefix}-sslo-external"
   }
 }
 
@@ -37,8 +37,8 @@ resource "aws_subnet" "DMZ1" {
   cidr_block            = "10.0.3.0/24"
   availability_zone     = var.az
   tags = {
-    Name = "DMZ1"
-    Group_Name = "DMZ1"
+    Name = "${var.prefix}-DMZ1"
+    Group_Name = "${var.prefix}-DMZ1"
   }
 }
 
@@ -50,8 +50,8 @@ resource "aws_subnet" "DMZ2" {
   cidr_block            = "10.0.4.0/24"
   availability_zone     = var.az
   tags = {
-    Name = "DMZ2"
-    Group_Name = "DMZ2"
+    Name = "${var.prefix}-DMZ2"
+    Group_Name = "${var.prefix}-DMZ2"
   }
 }
 
@@ -63,8 +63,8 @@ resource "aws_subnet" "internal" {
   cidr_block            = "10.0.5.0/24"
   availability_zone     = var.az
   tags = {
-    Name = "internal"
-    Group_Name = "internal"
+    Name = "${var.prefix}-internal"
+    Group_Name = "${var.prefix}-internal"
   }
 }
 
@@ -77,7 +77,7 @@ resource "aws_subnet" "tgw-appstack" {
   cidr_block            = "192.168.1.0/24"
   availability_zone     = var.az
   tags = {
-    Name = "tgw-appstack"
-    Group_Name = "tgw-appstack"
+    Name = "${var.prefix}-tgw-appstack"
+    Group_Name = "${var.prefix}-tgw-appstack"
   }
 }

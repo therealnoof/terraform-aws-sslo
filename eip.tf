@@ -8,11 +8,17 @@
 resource "aws_eip" "jumpbox" {
   vpc                         = true
   public_ipv4_pool            = "amazon"
+  tags = {
+    Name = "${var.prefix}-eip-jumpbox"
+  }
 }
 
 resource "aws_eip" "sslo_management" {
   vpc                         = true
   public_ipv4_pool            = "amazon"
+  tags = {
+    Name = "${var.prefix}-eip-sslo-management"
+  }
 }
 
 resource "aws_eip" "sslo_vip" {
@@ -20,6 +26,9 @@ resource "aws_eip" "sslo_vip" {
   public_ipv4_pool            = "amazon"
   network_interface           =  aws_network_interface.sslo_bigip_external.id
   associate_with_private_ip   = "10.0.2.200"
+  tags = {
+    Name = "${var.prefix}-eip-sslo-vip"
+  }
 }
 
 #

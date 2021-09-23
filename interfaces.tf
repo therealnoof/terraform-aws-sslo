@@ -10,7 +10,7 @@ resource "aws_network_interface" "sslo_jumpbox_management" {
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_management.id]
   tags = {
-    Name = "sslo_management_jumpbox_interface"
+    Name = "${var.prefix}-sslo_management_jumpbox_interface"
   }
 }
 
@@ -22,7 +22,7 @@ resource "aws_network_interface" "sslo_bigip_management" {
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_management.id]
   tags = {
-    Name = "sslo_management_bigip_interface"
+    Name = "${var.prefix}-sslo_management_bigip_interface"
   }
 }
 
@@ -35,7 +35,7 @@ resource "aws_network_interface" "sslo_bigip_external" {
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_external.id]
   tags = {
-    Name = "sslo_external_bigip_interface"
+    Name = "${var.prefix}-sslo_external_bigip_interface"
   }
 }
 
@@ -48,7 +48,7 @@ resource "aws_network_interface" "sslo_bigip_internal" {
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_internal.id]
   tags = {
-    Name = "sslo_internal_bigip_interface"
+    Name = "${var.prefix}-sslo_internal_bigip_interface"
   }
 }
 
@@ -61,7 +61,7 @@ resource "aws_network_interface" "sslo_bigip_dmz1" {
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_inspection_zone.id]
   tags = {
-    Name = "sslo_dmz1_bigip_interface"
+    Name = "${var.prefix}-sslo_dmz1_bigip_interface"
   }
 }
 
@@ -74,7 +74,7 @@ resource "aws_network_interface" "sslo_bigip_dmz2" {
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_inspection_zone.id]
   tags = {
-    Name = "sslo_dmz2_bigip_interface"
+    Name = "${var.prefix}-sslo_dmz2_bigip_interface"
   }
 }
 
@@ -86,7 +86,7 @@ resource "aws_network_interface" "sslo_test_webapp" {
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_appstack.id]
   tags = {
-    Name = "sslo_test_webapp"
+    Name = "${var.prefix}-sslo_test_webapp"
   }
 }
 
@@ -98,7 +98,7 @@ resource "aws_network_interface" "sslo_inspection_device_management" {
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_management.id]
   tags = {
-    Name = "sslo_inspection_device_management"
+    Name = "${var.prefix}-sslo_inspection_device_management"
   }
 }
 
@@ -110,7 +110,7 @@ resource "aws_network_interface" "sslo_inspection_device_dmz1" {
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_inspection_zone.id]
   tags = {
-    Name = "sslo_inspection_device_dmz1"
+    Name = "${var.prefix}-sslo_inspection_device_dmz1"
   }
 }
 
@@ -122,7 +122,7 @@ resource "aws_network_interface" "sslo_inspection_device_dmz2" {
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_inspection_zone.id]
   tags = {
-    Name = "sslo_inspection_device_dmz2"
+    Name = "${var.prefix}-sslo_inspection_device_dmz2"
   }
 }
 

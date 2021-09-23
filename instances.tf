@@ -14,7 +14,7 @@ resource "aws_instance" "jumpbox" {
   availability_zone           = var.az
   depends_on                  = [aws_internet_gateway.sslo_igw]
   tags = {
-    Name = "sslo-jumpbox"
+    Name = "${var.prefix}-sslo-jumpbox"
   }
   network_interface {
     network_interface_id      = aws_network_interface.sslo_jumpbox_management.id
@@ -41,7 +41,7 @@ resource "aws_instance" "sslo" {
   depends_on                  = [aws_internet_gateway.sslo_igw]
   user_data                   = "${file("${path.module}/f5_onboard.tmpl")}"
   tags = {
-    Name = "sslo-bigip"
+    Name = "${var.prefix}-sslo-bigip"
   }
   # set the mgmt interface 
   network_interface {
@@ -86,7 +86,7 @@ resource "aws_instance" "webapp-server" {
   availability_zone           = var.az
   depends_on                  = [aws_internet_gateway.sslo_igw]
   tags = {
-    Name = "sslo-webapp-server"
+    Name = "${var.prefix}-sslo-webapp-server"
   }
   network_interface {
     network_interface_id      = aws_network_interface.sslo_test_webapp.id
@@ -111,7 +111,7 @@ resource "aws_instance" "inspection_device" {
                                 EOF
                               
   tags = {
-    Name = "sslo-inspection-device"
+    Name = "${var.prefix}-sslo-inspection-device"
   }
   network_interface {
     network_interface_id      = aws_network_interface.sslo_inspection_device_management.id

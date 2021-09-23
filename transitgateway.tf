@@ -9,6 +9,9 @@
 
 resource "aws_ec2_transit_gateway" "sslo-tgw" {
   description = "The TGW for the SSLO Config"
+  tags = {
+    Name = "${var.prefix}-sslo-tgw"
+  }
 }
 
 #
@@ -33,4 +36,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "sslo_security_appstack" {
 
 resource "aws_ec2_transit_gateway_route_table" "sslo-tgw-rt" {
   transit_gateway_id = aws_ec2_transit_gateway.sslo-tgw.id
+  tags = {
+    Name = "${var.prefix}-sslo-tgw-route-table"
+  }
 }
