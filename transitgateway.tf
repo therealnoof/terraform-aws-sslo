@@ -23,7 +23,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "sslo_security_stack" {
   transit_gateway_id = aws_ec2_transit_gateway.sslo-tgw.id
   vpc_id             = module.vpc.vpc_id
   tags = {
-    Name = "${var.prefix}-sslo-tgw-attachment"
+    Name = "${var.prefix}-sslo-security-stack-tgw-attachment"
   }
 }
 
@@ -32,7 +32,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "sslo_security_appstack" {
   transit_gateway_id = aws_ec2_transit_gateway.sslo-tgw.id
   vpc_id             = aws_vpc.appstack.id
   tags = {
-    Name = "${var.prefix}-sslo-tgw-attachment"
+    Name = "${var.prefix}-sslo-app-stack-tgw-attachment"
   }
 }
 
