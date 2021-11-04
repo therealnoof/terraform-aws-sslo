@@ -4,7 +4,7 @@
 variable "region" {
   description = "Set the Region"
   type        = string
-  default     = "us-east-1"
+  default     = "us-west-2"
 }
 
 #
@@ -13,7 +13,7 @@ variable "region" {
 variable "az" {
   description = "Set Availability Zone"
   type        = string
-  default     = "us-east-1a"
+  default     = "us-west-2a"
 }
 
 #
@@ -22,7 +22,7 @@ variable "az" {
 variable "jumpbox_ami" {
   description = "Windows Server 2019 Base"
   type        = string
-  default     = "ami-029bfac3973c1bda1"
+  default     = "ami-058b12f51d412b5db"
 }
 
 #
@@ -31,7 +31,7 @@ variable "jumpbox_ami" {
 variable "sslo_ami" {
   description = "BIG-IP version 16.1.x"
   type        = string
-  default     = "ami-08257c0c5bb79a3f1"
+  default     = "ami-0e6b62154bdaec138"
 }
 
 #
@@ -40,7 +40,7 @@ variable "sslo_ami" {
 variable "inspection_ami" {
   description = "Snort Network Intrusion and Detection System"
   type        = string
-  default     = "ami-07f0ab90078850471"
+  default     = "ami-0ca1a165e63a6f102"
 }
 
 #
@@ -49,7 +49,7 @@ variable "inspection_ami" {
 variable "webapp_ami" {
   description = "Test webb app"
   type        = string
-  default     = "ami-0c8d6a5fd0c9b9fe7"
+  default     = "ami-0b1d8448c4f3c4376"
 }
 
 
@@ -60,7 +60,7 @@ variable "webapp_ami" {
 variable "ec2_key_name" {
   description = "AWS EC2 Key name for SSH access"
   type        = string
-  default     = "noofdog"
+  default     = "demo"
 }
 
 #
@@ -69,5 +69,5 @@ variable "ec2_key_name" {
 variable "prefix" {
   description = "Type a prefix name to keep your SSLO objects unique"
   type        = string 
-  default     = "noof"
+  default     = "demo"
 }
