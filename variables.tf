@@ -13,7 +13,7 @@ variable "region" {
 variable "az" {
   description = "Set Availability Zone"
   type        = string
-  default     = "us-west-2a"
+  default     = "us-west-2b"
 }
 
 #
