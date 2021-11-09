@@ -31,7 +31,7 @@ variable "jumpbox_ami" {
 variable "sslo_ami" {
   description = "BIG-IP version 16.1.x"
   type        = string
-  default     = " ami-01e9f329f1364fab8"
+  default     = "ami-01e9f329f1364fab8"
 }
 
 #
