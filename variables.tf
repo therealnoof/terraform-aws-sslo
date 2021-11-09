@@ -31,7 +31,7 @@ variable "jumpbox_ami" {
 variable "sslo_ami" {
   description = "BIG-IP version 16.1.x"
   type        = string
-  default     = "ami-0e6b62154bdaec138"
+  default     = " ami-01e9f329f1364fab8"
 }
 
 #
@@ -49,7 +49,7 @@ variable "inspection_ami" {
 variable "webapp_ami" {
   description = "Test webb app"
   type        = string
-  default     = "ami-0b1d8448c4f3c4376"
+  default     = "ami-0c01a13c64d5a5bb3"
 }
 
 
