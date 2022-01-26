@@ -22,7 +22,7 @@ variable "az" {
 variable "jumpbox_ami" {
   description = "Windows Server 2019 Base"
   type        = string
-  default     = "ami-058b12f51d412b5db"
+  default     = "ami-0aad84f764a2bd39a"
 }
 
 #
