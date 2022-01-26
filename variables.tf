@@ -4,7 +4,7 @@
 variable "region" {
   description = "Set the Region"
   type        = string
-  default     = "us-west-2"
+  default     = "us-east-1"
 }
 
 #
@@ -13,7 +13,7 @@ variable "region" {
 variable "az" {
   description = "Set Availability Zone"
   type        = string
-  default     = "us-west-2b"
+  default     = "us-east-1a"
 }
 
 #
