@@ -21,7 +21,7 @@ SSLO has ATC packages installed and DO provisions SSLO and sets networking up vi
 
 SSLO day 2 automation coming later(as3 or ansible)
 
-The Inspection device is a Linux host with Snort installed. Snort is not configured but it will bootstrap with appropriate routing and IP forwarding so that packets
+The Inspection devices are a Linux host with Snort installed. Snort is not configured but it will bootstrap with appropriate routing and IP forwarding so that packets
 traverse the inspection zone and re-enter the SSLO DMZ2 interface.
 
 There are static IP addresses hard coded for ease of demo at the moment. The outputs at the completion of the Terraform will help with IP understanding.
@@ -66,6 +66,8 @@ terraform apply
 terraform destroy <-- when you are ready to tear it down
 
 4. The BIG-IP SSLO is not configured, this is coming soon but all of the plumbing is in place
+
+Be sure to create the pool and pool member before configuring, this example uses a Wordpress App, IP address is outputted.
 
 5. Configure a L3 Inbound topology
 
