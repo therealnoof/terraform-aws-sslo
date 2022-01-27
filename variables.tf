@@ -25,13 +25,14 @@ variable "jumpbox_ami" {
   default     = "ami-0aad84f764a2bd39a"
 }
 
+
 #
 # BIG-IP AMI - Change AMI to whatever, the world is your oyster!
 #
 variable "sslo_ami" {
   description = "BIG-IP version 16.1.x"
   type        = string
-  default     = "ami-00e5f8a1ccd470b8a"
+  default     = "ami-08d7cf776e3a0e6fb"
 }
 
 #

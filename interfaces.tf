@@ -91,38 +91,74 @@ resource "aws_network_interface" "sslo_test_webapp" {
 }
 
 #
-# Create Management Network Interface for Inspection Device
+# Create Management Network Interface for Inspection Device One
 #
-resource "aws_network_interface" "sslo_inspection_device_management" {
+resource "aws_network_interface" "sslo_inspection_device_management_1" {
   subnet_id             = aws_subnet.management.id
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_management.id]
   tags = {
-    Name = "${var.prefix}-sslo_inspection_device_management"
+    Name = "${var.prefix}-sslo_inspection_device_management_1"
   }
 }
 
 #
-# Create DMZ1 Network Interface for Inspection Device
+# Create DMZ1 Network Interface for Inspection Device One
 #
-resource "aws_network_interface" "sslo_inspection_device_dmz1" {
+resource "aws_network_interface" "sslo_inspection_device_dmz1_1" {
   subnet_id             = aws_subnet.DMZ1.id
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_inspection_zone.id]
   tags = {
-    Name = "${var.prefix}-sslo_inspection_device_dmz1"
+    Name = "${var.prefix}-sslo_inspection_device_dmz1_1"
   }
 }
 
 #
-# Create DMZ2 Network Interface for Inspection Device
+# Create DMZ2 Network Interface for Inspection Device One
 #
-resource "aws_network_interface" "sslo_inspection_device_dmz2" {
+resource "aws_network_interface" "sslo_inspection_device_dmz2_1" {
   subnet_id             = aws_subnet.DMZ2.id
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_inspection_zone.id]
   tags = {
-    Name = "${var.prefix}-sslo_inspection_device_dmz2"
+    Name = "${var.prefix}-sslo_inspection_device_dmz2_1"
+  }
+}
+
+#
+# Create Management Network Interface for Inspection Device Two
+#
+resource "aws_network_interface" "sslo_inspection_device_management_2" {
+  subnet_id             = aws_subnet.management.id
+  source_dest_check     = "false"
+  security_groups       = [aws_security_group.sslo_management.id]
+  tags = {
+    Name = "${var.prefix}-sslo_inspection_device_management_2"
+  }
+}
+
+#
+# Create DMZ1 Network Interface for Inspection Device Two
+#
+resource "aws_network_interface" "sslo_inspection_device_dmz1_2" {
+  subnet_id             = aws_subnet.DMZ1.id
+  source_dest_check     = "false"
+  security_groups       = [aws_security_group.sslo_inspection_zone.id]
+  tags = {
+    Name = "${var.prefix}-sslo_inspection_device_dmz1_1"
+  }
+}
+
+#
+# Create DMZ2 Network Interface for Inspection Device Two
+#
+resource "aws_network_interface" "sslo_inspection_device_dmz2_2" {
+  subnet_id             = aws_subnet.DMZ2.id
+  source_dest_check     = "false"
+  security_groups       = [aws_security_group.sslo_inspection_zone.id]
+  tags = {
+    Name = "${var.prefix}-sslo_inspection_device_dmz2_2"
   }
 }
 

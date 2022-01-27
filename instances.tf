@@ -32,11 +32,7 @@ resource "aws_instance" "sslo" {
 
   ami                         = var.sslo_ami  
   instance_type               = "m5.4xlarge"
-  key_name                    = var.ec2_key_name 
-  ebs_block_device {
-    volume_size               = 300
-    device_name               ="/dev/xvda"
-  } 
+  key_name                    = var.ec2_key_name  
   availability_zone           = var.az
   depends_on                  = [aws_internet_gateway.sslo_igw]
   user_data                   = "${file("${path.module}/f5_onboard.tmpl")}"
@@ -95,11 +91,11 @@ resource "aws_instance" "webapp-server" {
 }
 
 #
-# Create Inspection Device
+# Create Inspection Device 1
 # 
-resource "aws_instance" "inspection_device" {
+resource "aws_instance" "inspection_device_1" {
 
-  ami                         = var.inspection_ami 
+  ami                         = var.inspection_ami
   instance_type               = "t2.small"
   key_name                    = var.ec2_key_name  
   availability_zone           = var.az
@@ -110,20 +106,52 @@ resource "aws_instance" "inspection_device" {
                                 sudo sysctl -w net.ipv4.ip_forward=1
                                 EOF
                               
-  tags = {
-    Name = "${var.prefix}-sslo-inspection-device"
+   tags = {
+    Name = "${var.prefix}-sslo-inspection-device-1"
   }
   network_interface {
-    network_interface_id      = aws_network_interface.sslo_inspection_device_management.id
+    network_interface_id      = aws_network_interface.sslo_inspection_device_management_1.id
     device_index              = 0
   }
   network_interface {
-    network_interface_id      = aws_network_interface.sslo_inspection_device_dmz1.id
+    network_interface_id      = aws_network_interface.sslo_inspection_device_dmz1_1.id
     device_index              = 1
   }
   network_interface {
-    network_interface_id      = aws_network_interface.sslo_inspection_device_dmz2.id
+    network_interface_id      = aws_network_interface.sslo_inspection_device_dmz2_1.id
     device_index              = 2
   }
 }
 
+#
+# Create Inspection Device 2
+# 
+resource "aws_instance" "inspection_device_2" {
+
+  ami                         = var.inspection_ami
+  instance_type               = "t2.small"
+  key_name                    = var.ec2_key_name  
+  availability_zone           = var.az
+  depends_on                  = [aws_internet_gateway.sslo_igw]
+  user_data                   = <<-EOF
+                                #!/bin/bash
+                                sudo ip route add 10.0.2.0/24 via 10.0.4.23 dev eth2
+                                sudo sysctl -w net.ipv4.ip_forward=1
+                                EOF
+                              
+   tags = {
+    Name = "${var.prefix}-sslo-inspection-device-2"
+  }
+  network_interface {
+    network_interface_id      = aws_network_interface.sslo_inspection_device_management_2.id
+    device_index              = 0
+  }
+  network_interface {
+    network_interface_id      = aws_network_interface.sslo_inspection_device_dmz1_2.id
+    device_index              = 1
+  }
+  network_interface {
+    network_interface_id      = aws_network_interface.sslo_inspection_device_dmz2_2.id
+    device_index              = 2
+  }
+}
