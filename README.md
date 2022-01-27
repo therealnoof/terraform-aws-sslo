@@ -21,7 +21,7 @@ SSLO has ATC packages installed and DO provisions SSLO and sets networking up vi
 
 SSLO day 2 automation coming later(as3 or ansible)
 
-The Inspection devices are a Linux host with Snort installed. Snort is not configured but it will bootstrap with appropriate routing and IP forwarding so that packets
+This demo uses two Inspection devices to simulate real world deployments. These are a Linux hosts with Snort installed. Snort is not configured but it will bootstrap with appropriate routing and IP forwarding so that packets
 traverse the inspection zone and re-enter the SSLO DMZ2 interface.
 
 There are static IP addresses hard coded for ease of demo at the moment. The outputs at the completion of the Terraform will help with IP understanding.
