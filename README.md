@@ -79,6 +79,8 @@ Be sure to create the pool and pool member before configuring, this example uses
 
 9. Use DMZ2 Vlan for from
 
+10. Add both IP Inspection devices to the Service configuration ( this would mimic an array of security devices)
+
 <b>Inbound Traffic Diagram</b>
 
  ![f5](https://user-images.githubusercontent.com/18743780/134435723-a9216d8a-0cd7-463a-bda7-665eaaff9008.png)
