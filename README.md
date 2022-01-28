@@ -13,7 +13,7 @@ Static private IP's are set for the BIG-IP, these are set in the f5_onboard.tmpl
 
 You will need a BYOL SSLO key/license to properly spin this up.  This is hardcoded in the f5_onboard.tmpl
 
-Prefix is set in the variables.tf, set this to make your SSLO objects unique: the default is set to my name: "noof" :)
+Prefix is set in the variables.tf, set this to make your SSLO objects unique: the default is set to: "demo" 
 
 User=admin Password=f5Twister! , this is configured for demo/dev enviroments only, it is recommend that you use a secrets manager like Secrets or Vault
 
