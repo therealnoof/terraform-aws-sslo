@@ -18,6 +18,16 @@ output "sslo_dmz2" {
   description = "The private IP address of SSLO DMZ2 interface."
 }
 
+output "sslo_dmz3" {
+  value       = aws_network_interface.sslo_bigip_dmz3.private_ip
+  description = "The private IP address of SSLO DMZ3 interface."
+}
+
+output "sslo_dmz4" {
+  value       = aws_network_interface.sslo_bigip_dmz4.private_ip
+  description = "The private IP address of SSLO DMZ4 interface."
+}
+
 output "sslo_management" {
   value       = aws_network_interface.sslo_bigip_management.private_ip
   description = "The private IP address of SSLO management interface."
@@ -59,7 +69,7 @@ output "inspection_service_ip_1" {
 }
 
 output "inspection_service_ip_2" {
-  value       = aws_network_interface.sslo_inspection_device_dmz1_2.private_ip
+  value       = aws_network_interface.sslo_inspection_device_dmz3.private_ip
   description = "Private IP of the Inspection Service Two IP"
 }
 

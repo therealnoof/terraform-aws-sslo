@@ -77,7 +77,7 @@ extension_services:
           myLicense:
             class: License
             licenseType: regKey
-            regKey: FNQKL-MLYYR-SAFDL-ZAELV-SLJOICR
+            regKey:  IYIPQ-MMJVF-VBDFH-QRJOE-VAMKJZO
           My_DbVariables:
             class: DbVariables
             provision.extramb: 1000
@@ -151,6 +151,32 @@ extension_services:
             vlan: dmz2
             allowService: default
             trafficGroup: traffic-group-local-only
+          dmz3:
+            class: VLAN
+            tag: 4050
+            mtu: 1500
+            interfaces:
+            - name: '1.5'
+              tagged: false
+          dmz3-self:
+            class: SelfIp
+            address: 10.0.6.27/24
+            vlan: dmz3
+            allowService: default
+            trafficGroup: traffic-group-local-only
+          dmz4:
+            class: VLAN
+            tag: 4051
+            mtu: 1500
+            interfaces:
+            - name: '1.6'
+              tagged: false
+          dmz4-self:
+            class: SelfIp
+            address: 10.0.7.23/24
+            vlan: dmz4
+            allowService: default
+            trafficGroup: traffic-group-local-only  
           tgw-route:
             class: Route
             gw: 10.0.5.1

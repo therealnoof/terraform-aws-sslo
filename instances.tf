@@ -69,6 +69,17 @@ resource "aws_instance" "sslo" {
     device_index         = 4
   }
   
+  # set the inspection zone (DMZ3) interface 
+  network_interface {
+    network_interface_id = aws_network_interface.sslo_bigip_dmz3.id
+    device_index         = 5
+  }
+
+  # set the inspection zone (DMZ4) interface 
+  network_interface {
+    network_interface_id = aws_network_interface.sslo_bigip_dmz4.id
+    device_index         = 6
+  }
 }
 
 #
@@ -135,7 +146,7 @@ resource "aws_instance" "inspection_device_2" {
   depends_on                  = [aws_internet_gateway.sslo_igw]
   user_data                   = <<-EOF
                                 #!/bin/bash
-                                sudo ip route add 10.0.2.0/24 via 10.0.4.23 dev eth2
+                                sudo ip route add 10.0.2.0/24 via 10.0.7.23 dev eth2
                                 sudo sysctl -w net.ipv4.ip_forward=1
                                 EOF
                               
@@ -147,11 +158,11 @@ resource "aws_instance" "inspection_device_2" {
     device_index              = 0
   }
   network_interface {
-    network_interface_id      = aws_network_interface.sslo_inspection_device_dmz1_2.id
+    network_interface_id      = aws_network_interface.sslo_inspection_device_dmz3.id
     device_index              = 1
   }
   network_interface {
-    network_interface_id      = aws_network_interface.sslo_inspection_device_dmz2_2.id
+    network_interface_id      = aws_network_interface.sslo_inspection_device_dmz4.id
     device_index              = 2
   }
 }

@@ -56,6 +56,32 @@ resource "aws_subnet" "DMZ2" {
 }
 
 #
+# Create DMZ3 Subnet
+#
+resource "aws_subnet" "DMZ3" {
+  vpc_id                = module.vpc.vpc_id
+  cidr_block            = "10.0.6.0/24"
+  availability_zone     = var.az
+  tags = {
+    Name = "${var.prefix}-DMZ3"
+    Group_Name = "${var.prefix}-DMZ3"
+  }
+}
+
+#
+# Create DMZ4 Subnet
+#
+resource "aws_subnet" "DMZ4" {
+  vpc_id                = module.vpc.vpc_id
+  cidr_block            = "10.0.7.0/24"
+  availability_zone     = var.az
+  tags = {
+    Name = "${var.prefix}-DMZ4"
+    Group_Name = "${var.prefix}-DMZ4"
+  }
+}
+
+#
 # Create Internal Subnet
 #
 resource "aws_subnet" "internal" {

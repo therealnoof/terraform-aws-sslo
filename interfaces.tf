@@ -79,6 +79,32 @@ resource "aws_network_interface" "sslo_bigip_dmz2" {
 }
 
 #
+# Create DMZ3 Network Interface for BIGIP(SSLO)
+#
+resource "aws_network_interface" "sslo_bigip_dmz3" {
+  private_ips            = ["10.0.6.27"]
+  subnet_id             = aws_subnet.DMZ3.id
+  source_dest_check     = "false"
+  security_groups       = [aws_security_group.sslo_inspection_zone.id]
+  tags = {
+    Name = "${var.prefix}-sslo_dmz3_bigip_interface"
+  }
+}
+
+#
+# Create DMZ4 Network Interface for BIGIP(SSLO)
+#
+resource "aws_network_interface" "sslo_bigip_dmz4" {
+  private_ips            = ["10.0.7.23"]
+  subnet_id             = aws_subnet.DMZ4.id
+  source_dest_check     = "false"
+  security_groups       = [aws_security_group.sslo_inspection_zone.id]
+  tags = {
+    Name = "${var.prefix}-sslo_dmz4_bigip_interface"
+  }
+}
+
+#
 # Create the Network Interface for the WebServer
 #
 resource "aws_network_interface" "sslo_test_webapp" {
@@ -139,26 +165,26 @@ resource "aws_network_interface" "sslo_inspection_device_management_2" {
 }
 
 #
-# Create DMZ1 Network Interface for Inspection Device Two
+# Create DMZ3 Network Interface for Inspection Device Two
 #
-resource "aws_network_interface" "sslo_inspection_device_dmz1_2" {
-  subnet_id             = aws_subnet.DMZ1.id
+resource "aws_network_interface" "sslo_inspection_device_dmz3" {
+  subnet_id             = aws_subnet.DMZ3.id
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_inspection_zone.id]
   tags = {
-    Name = "${var.prefix}-sslo_inspection_device_dmz1_1"
+    Name = "${var.prefix}-sslo_inspection_device_dmz3"
   }
 }
 
 #
-# Create DMZ2 Network Interface for Inspection Device Two
+# Create DMZ4 Network Interface for Inspection Device Two
 #
-resource "aws_network_interface" "sslo_inspection_device_dmz2_2" {
-  subnet_id             = aws_subnet.DMZ2.id
+resource "aws_network_interface" "sslo_inspection_device_dmz4" {
+  subnet_id             = aws_subnet.DMZ4.id
   source_dest_check     = "false"
   security_groups       = [aws_security_group.sslo_inspection_zone.id]
   tags = {
-    Name = "${var.prefix}-sslo_inspection_device_dmz2_2"
+    Name = "${var.prefix}-sslo_inspection_device_dmz4"
   }
 }
 
