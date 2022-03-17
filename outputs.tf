@@ -43,15 +43,15 @@ output "sslo_management_public_dns" {
   description = "The public DNS of SSLO."
 }
 
-output "jumpbox_public_ip" {
-  value       = aws_instance.jumpbox.public_ip
-  description = "The public IP of the jumpbox."
-}
+#output "jumpbox_public_ip" {
+#  value       = aws_instance.jumpbox.public_ip
+#  description = "The public IP of the jumpbox."
+#}
 
-output "jumpbox_public_dns" {
-  value       = aws_instance.jumpbox.public_dns
-  description = "The public DNS of the jumpbox."
-}
+#output "jumpbox_public_dns" {
+#  value       = aws_instance.jumpbox.public_dns
+#  description = "The public DNS of the jumpbox."
+#}
 
 output "sslo_vip" {
   value       = aws_eip.sslo_vip.public_ip

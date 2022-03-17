@@ -45,9 +45,23 @@ resource "aws_route_table_association" "sslo-route-table-DMZ2" {
   route_table_id        = aws_route_table.sslo-route-table.id
 }
 
-resource "aws_route_table_association" "sslo-route-table-Internal" {
-  subnet_id             = aws_subnet.internal.id
+resource "aws_route_table_association" "sslo-route-table-DMZ3" {
+  subnet_id             = aws_subnet.DMZ3.id
   route_table_id        = aws_route_table.sslo-route-table.id
+}
+
+resource "aws_route_table_association" "sslo-route-table-DMZ4" {
+  subnet_id             = aws_subnet.DMZ4.id
+  route_table_id        = aws_route_table.sslo-route-table.id
+}
+
+
+#
+# Create the Internal Subnet Association with Separate Route Table
+#
+resource "aws_route_table_association" "sslo-internal-subnet-route-table" {
+  subnet_id             = aws_subnet.internal.id
+  route_table_id        = aws_route_table.sslo-internal-subnet-route-table.id
 }
 
 
@@ -81,6 +95,10 @@ resource "aws_route_table" "sslo-appstack-route-table" {
     cidr_block          = "10.0.0.0/16"
     transit_gateway_id  = aws_ec2_transit_gateway.sslo-tgw.id
   }
+    route {
+    cidr_block          = "0.0.0.0/0"
+    transit_gateway_id  = aws_ec2_transit_gateway.sslo-tgw.id 
+    }
   tags = {
     Name = "${var.prefix}-sslo-appstack-route-table"
   }
@@ -101,3 +119,22 @@ resource "aws_route_table_association" "sslo-appstack-route-table" {
   subnet_id             = aws_subnet.tgw-appstack.id  
   route_table_id        = aws_route_table.sslo-appstack-route-table.id
 }
+
+#
+# Create the Internal BIG-IP Subnet Route Table
+#
+resource "aws_route_table" "sslo-internal-subnet-route-table" {
+  vpc_id                = module.vpc.vpc_id
+  
+    route {
+    cidr_block           = "0.0.0.0/0"
+    network_interface_id =  aws_network_interface.sslo_bigip_internal.id
+  }
+    route {
+    cidr_block           = "192.168.1.0/24"
+    transit_gateway_id   = aws_ec2_transit_gateway.sslo-tgw.id
+    }
+  tags = {
+    Name = "${var.prefix}-sslo-internal-subnet-route-table"
+  }
+} 
