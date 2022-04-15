@@ -42,7 +42,7 @@ variable "sslo_ami" {
 variable "inspection_ami" {
   description = "Snort Network Intrusion and Detection System"
   type        = string
-  default     = "ami-093f4a65f24ed5524"
+  default     = "ami-0cdc9ccb73322825f"
 }
 
 #
